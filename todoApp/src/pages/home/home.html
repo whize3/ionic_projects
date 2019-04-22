@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="openNewTodo()">
+        <ion-icon ios="ios-create-outline" md="md-create"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      할일 목록
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let todo of todos">
+      <button ion-item (click)="showTodo(todo.id)">
+        <h2>{{todo.title}}</h2>
+        <p>{{todo.description}}</p>
+        <div item-end *ngIf="todo.complete">
+          <ion-icon ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
+        </div>
+      </button>
+      <ion-item-options>
+        <button ion-button color="danger" (click)="deleteTodo(todo.id)">
+          <ion-icon name="trash"></ion-icon>삭제
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

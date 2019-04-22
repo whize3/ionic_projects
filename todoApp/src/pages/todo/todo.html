@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>할 일 상세</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-input type="text" placeholder="제목" [(ngModel)]="todo.title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea row="5" placeholder="내용" [(ngModel)]="todo.description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>완료</ion-label>
+        <ion-checkbox [(ngModel)]="todo.complete"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <div padding>
+          <button ion-button block (click)="updateTodo()">저장</button>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+
+</ion-content>
