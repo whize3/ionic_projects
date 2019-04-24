@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{item?.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>이름</ion-label>
+    <ion-input [(ngModel)]="item.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>수량</ion-label>
+    <ion-input [(ngModel)]="item.quantity" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>가격</ion-label>
+    <ion-input [(ngModel)]="item.price" type="number"></ion-input>
+  </ion-item>
+  <button ion-button block clear (click)="updateItem(item)">저장</button>
+  <button ion-button block clear color=danger (click)="removeItem(item)">삭제</button>
+</ion-content>

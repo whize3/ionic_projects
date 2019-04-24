@@ -7,18 +7,23 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { MyApp } from './app.component';
+import { HomeModule } from '../pages/home/home.module'
 import { HomePage } from '../pages/home/home';
 
 import { FIREBASE_CONFIG } from './firebase.credentials'
 
+import { ShoppingListService } from '../services/shopping-list/shopping-list.service'
+import{ ToastService } from '../services/toast/toast.service'
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    // HomePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HomeModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
   ],
@@ -30,7 +35,9 @@ import { FIREBASE_CONFIG } from './firebase.credentials'
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ShoppingListService,
+    ToastService
   ]
 })
 export class AppModule {}
